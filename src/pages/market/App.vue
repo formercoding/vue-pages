@@ -1,6 +1,5 @@
 <template>
-  <div id="app">2
-  </div>
+  <div id="app"></div>
 </template>
 
 <script>
@@ -14,7 +13,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less"　scoped>
+@theme-color: #00ffd1;
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

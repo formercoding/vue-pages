@@ -1,27 +1,34 @@
 <template>
-  <div id="app">1
-    <!-- <HelloWorld/> -->
-  </div>
+    <div id="app">
+        <select-trade></select-trade>
+    </div>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld'
-
+import SelectTrade from '@/pages/index/components/SelectTrade.vue'
 export default {
-  name: 'app',
-  components: {
-    // HelloWorld
-  }
+    name: 'app',
+    data() {
+        return {
+            isOpen: true
+        }
+    },
+
+    created() {
+      
+    },
+
+    methods: {
+       
+    },
+
+    components: {
+        SelectTrade
+    }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="less" scoped>
+@import './../../common/less/theme.less';
+
 </style>
