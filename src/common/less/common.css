@@ -21,3 +21,40 @@
 .el-message .el-message__content {
   color: #fff;
 }
+/* 城市选择弹窗 */
+.select-city select {
+  width: 140px;
+  height: 30px;
+  margin-right: 10px;
+  padding: 0 20px;
+  color: #f73;
+  font-size: 14px;
+  line-height: inherit;
+  border: 1px solid #f73;
+  border-radius: 16px;
+  background: url(http://static-10006892.file.myqcloud.com/index/img/icon-down.png) no-repeat scroll 120px center transparent;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+.select-city select option {
+  display: block;
+  font-weight: normal;
+  white-space: pre;
+  min-height: 120px;
+  padding: 0px 2px 1px;
+  color: #333;
+}
+/* element下拉框 */
+.select-login-menu.el-dropdown-menu {
+  margin-top: 2px;
+  border-radius: 0;
+}
+.select-login-menu .el-dropdown-menu__item:focus,
+.select-login-menu .el-dropdown-menu__item:not(.is-disabled):hover {
+  color: rgba(0, 0, 0, 0.65);
+  background: #f7f7f7;
+}
+.select-login-menu .popper__arrow {
+  display: none;
+}

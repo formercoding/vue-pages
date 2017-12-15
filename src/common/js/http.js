@@ -6,12 +6,16 @@ import {Message} from 'element-ui'
 // } from '../config/index';
 
 let ajaxUrl = {
-    article: '/api/article', // 文章操作
+    getIndexData: '/api/supplier/index/indexData', // 获取首页数据
+    getCommonData: '/api/supplier/index/commonData', // 获取公共数据
+    
+    saveIndustry: '/api/supplier/index/saveSupplierInfo', // 提交行业数据
+    saveLoginSelected: '/api/supplier/index/saveLoginSelected'
 }
 
-axios.get('/api/seller').then(() => {
-    Message('dd')
-})
+// axios.get('/api/seller').then(() => {
+//     Message('dd')
+// })
 
 axios.defaults.timeout = 60 * 1000;
 
@@ -36,8 +40,10 @@ axios.interceptors.request.use(
 axios.interceptors.response.use(
     // 正确处理
     res => {
-        let [data, status, msg] = [res.data, data.return_code, data.return_msg];
-
+        let data = res.data,
+            status = data.return_code,
+            msg = data.return_msg;
+        
         // status   SUCCESS:成功  
         if (status === 'SUCCESS') {
             return msg;
@@ -131,8 +137,24 @@ export function fetchUpload(url, config, sign, progressFn) {
 }
 
 export default {
-    // 获取用户信息
-    getUserInfo(config) {
-        return fetchGet(ajaxUrl.getUserInfo, config);
-    }
+    // 获取首页数据
+    getIndexData(config) {
+        return fetchGet(ajaxUrl.getIndexData, config);
+    },
+
+    // 获取公共数据
+    getCommonData(config) {
+        return fetchGet(ajaxUrl.getCommonData, config);
+    },
+
+    
+    saveIndustry(config) {
+        return fetchPost(ajaxUrl.saveIndustry, config);
+    },
+
+    saveLoginSelected(config) {
+        return fetchPost(ajaxUrl.saveLoginSelected, config);
+    },
+
+   
 }

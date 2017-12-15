@@ -22,6 +22,11 @@ export function alertTip([text, duration = 2000]) {
     }, duration);
 }
 
+export let test = {
+    name: 'luo',
+    age: 20
+}
+
     // // 全屏加载Loading
     // fullLoading() {
     //     let ele = document.createElement('div');

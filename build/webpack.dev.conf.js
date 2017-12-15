@@ -40,31 +40,39 @@ const devWebpackConfig = merge(baseWebpackConfig, {
             // mock数据
             let express = require('express');
 
-            let appData = require('./../data.json');
-            let seller = appData.seller;
-            let goods = appData.goods;
-            let ratings = appData.ratings;
+            let appData = require('./../data.json'),
+                getIndex = appData.getIndex,
+                getCommon = appData.getCommon,
 
-            let apiRouters = express.Router();
+                apiRouters = express.Router();
 
-            apiRouters.get('/seller', function (req, res) {
+            // 获取首页数据
+            apiRouters.get('/supplier/index/indexData/:id?', function (req, res) {
                 res.json({
-                    errno: 0,
-                    data: seller
+                    return_code: 'SUCCESS',
+                    return_msg: getIndex
                 })
             });
 
-            apiRouters.get('/goods', function (req, res) {
+            // 获取公共数据
+            apiRouters.get('/supplier/index/commonData/:id?', function (req, res) {
                 res.json({
-                    errno: 0,
-                    data: goods
+                    return_code: 'SUCCESS',
+                    return_msg: getCommon
                 })
             });
 
-            apiRouters.get('/ratings', function (req, res) {
+            // 提交行业数据
+            apiRouters.post('/supplier/index/saveSupplierInfo', function (req, res) {
                 res.json({
-                    errno: 0,
-                    data: ratings
+                    return_code: 'SUCCESS'
+                })
+            });
+
+            // 提交默认登录页面数据
+            apiRouters.post('/supplier/index/saveLoginSelected', function (req, res) {
+                res.json({
+                    return_code: 'SUCCESS'
                 })
             });
 
